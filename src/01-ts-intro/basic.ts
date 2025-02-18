@@ -12,7 +12,7 @@ console.log(`x - y = ${x - y}`);
 console.log(`x * y = ${x * y}`);
 console.log(`x / y = ${x / y}`);
 
-let z: number = 10;
+// let z: number = 10;
 let resultOne: number = (x * y) / 10;
 console.log(`x * y / 10 = ${resultOne}`);
 
@@ -41,8 +41,8 @@ console.log(dogName);
 
 dogName = "elf";
 
-let wahr: boolean = true;
-wahr = false;
+// let wahr: boolean = true;
+// wahr = false;
 
 let seventeen: number = 17;
 
