@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="module" src="dom-manipulation.ts"></script>
+        <script type="module" src="/src/main.ts"></script>
+        <title>03 TypeScript Dom-Manipulation</title>
+    </head>
+    <body>
+        <img
+            class="szene-switch pointer"
+            src="../../public/brightness.png"
+            alt="Brightness"
+        />
+        <h1><a href="../../index.html">03 TypeScript Dom-Manipulation</a></h1>
+        <p>
+            Um die Übungen zu sehen, muss die
+            <abbr title="option + command + J">Developer Console</abbr> geöffnet
+            werden.
+        </p>
+        <h2 class="change-color">Ändere meine Farbe</h2>
+        <img
+            class="change-hue"
+            src="../../public/marzio.png"
+            alt="65cf6fb4848b8726e0b6c8bc_Marzio%20Supercode-min%20"
+        />
+        <form>
+            <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Gib Deinen namen ein"
+            />
+            <input type="submit" />
+        </form>
+
+        <h3>Register Form</h3>
+        <form class="register-form">
+            <label for="userName">Benutzername</label>
+            <input type="text" name="userName" id="userName" />
+            <label for="userPassword">Passwort</label>
+            <input type="password" name="userPassword" id="userPassword" />
+            <label for="userEmail">E-Mail</label>
+            <input type="email" name="userEmail" id="userEmail" />
+            <label for="userIcon">Wähle ein Icon</label>
+            <select name="userIcon" id="userIcon">
+                <option value="🖌️">🖌️</option>
+                <option value="🍀">🍀</option>
+                <option value="🦕">🦕</option>
+                <option value="🫐">🫐</option>
+                <option value="🎁">🎁</option>
+                <option value="🌳">🌳</option>
+                <option value="🐈">🐈</option>
+                <option value="🐕">🐕</option>
+            </select>
+            <label for="userDatenschutz"
+                >Ich stimme den Datenschutzbestimmungen zu</label
+            >
+            <input
+                type="checkbox"
+                name="userDatenschutz"
+                id="userDatenschutz"
+            />
+            <input type="submit" />
+        </form>
+
+        <div class="outputForm"></div>
+
+        <hr />
+        <h2>Übungen</h2>
+        <h3>Events-TS-Level-1_6</h3>
+        <form id="level-1_6">
+            <select name="selectLevel-1_6" id="selectLevel-1_6">
+                <option value="Auswahl 1">Auswahl 1</option>
+                <option value="Auswahl 2">Auswahl 2</option>
+                <option value="Auswahl 3">Auswahl 3</option>
+                <option value="Auswahl 4">Auswahl 4</option>
+                <option value="Auswahl 5">Auswahl 5</option>
+                <option value="Auswahl 6">Auswahl 6</option>
+            </select>
+        </form>
+        <div class="output-selectLevel-1_6"></div>
+
+        <h3>Project-TS Kreditkarte</h3>
+        <section id="kreditkarte">
+            <div class="card">
+                <div>
+                    <img src="../../public/card-chip.png" alt="Card Chip" />
+                    <img src="../../public/visa-logo.png" alt="Visa Logo" />
+                </div>
+                <p class="cardNumber">#### #### #### ####</p>
+                <div>
+                    <div>
+                        <p class="lable">Card Holder</p>
+                        <p class="cardHolder">Full Name</p>
+                    </div>
+                    <div>
+                        <p class="lable">Expires</p>
+                        <p class="cardDate">MM/YY</p>
+                    </div>
+                </div>
+            </div>
+            <form id="cardForm">
+                <div>
+                    <label for="cardNumber">Card Number</label>
+                    <input
+                        type="number"
+                        name="cardNumber"
+                        id="cardNumber"
+                        size="15"
+                    />
+                </div>
+                <div>
+                    <label for="cardHolder">Card Holder</label>
+                    <input type="text" name="cardHolder" id="cardHolder" />
+                </div>
+                <div class="beside">
+                    <div>
+                        <label for="cardDate">Expiration Date</label>
+                        <input type="month" name="cardDate" id="cardDate" />
+                    </div>
+                    <div>
+                        <label for="CVV">CVV</label>
+                        <input
+                            type="number"
+                            size="3"
+                            name="cardCvv"
+                            id="cardCvv"
+                        />
+                    </div>
+                </div>
+                <input class="submit" type="submit" value="Submit" />
+            </form>
+        </section>
+        <h3>Forms-TS-Level-1_1</h3>
+        <form id="level1_1">
+            <input type="number" name="verdoppelMich" id="verdoppelMich" />
+            <input type="submit" value="Verdoppel mich" />
+        </form>
+
+        <h3>Forms-TS-Level-1_2</h3>
+        <form id="level1_2">
+            <label for="yearOfBirth">Gib dein Gebutsjahr ein</label>
+            <input type="number" name="yearOfBirth" id="yearOfBirth" size="4" />
+            <input type="submit" value="Berechne mein Alter" />
+        </form>
+        <div class="ageOutput"></div>
+    </body>
+</html>

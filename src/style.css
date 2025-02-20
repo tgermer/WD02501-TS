@@ -13,6 +13,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  transition: .2s linear;
+}
+
 a {
   /* font-weight: 500;  */
   color: #646cff;
@@ -29,6 +33,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  padding-bottom: 1rem;
 }
 
 header {
@@ -59,6 +64,136 @@ main ul {
   margin-top: 1rem;
 }
 
+img.change-hue {
+  border-radius: 50%;
+  /* border:2px solid tomato; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) ;
+}
+.change-hue {
+  transition: filter 1s;
+}
+
+.szene-switch {
+  width: 50px;
+  ;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.dark {
+  background-color: #242424;
+  color: white;
+}
+
+form.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+#kreditkarte {
+  height: 100vh;
+  width: 100%;
+  background-color: #FFF6F6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#kreditkarte .card {
+  height: 12.5rem;
+  width: 23.125rem;
+  border-radius: .5rem;
+  margin-bottom: -4rem;
+  z-index: 10;
+  background-image: url("../public/card-background.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+#kreditkarte img {
+  height: 35px;
+  margin-bottom: 2rem;
+}
+
+#kreditkarte .card div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#kreditkarte .card div div {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+#kreditkarte .card div div:last-of-type {
+  text-align: right;
+}
+
+#kreditkarte .card p {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+}
+
+#kreditkarte p.lable {
+  font-size: .8rem;
+  color: gray;
+}
+
+#kreditkarte form {
+  background-color: white;
+  width: 500px;
+  padding: 8rem 4rem 4rem 4rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+#kreditkarte form div {
+  display: flex;
+  flex-direction: column;
+}
+#kreditkarte form .beside {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+#kreditkarte form .beside div {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+#kreditkarte form .beside div:last-of-type {
+  text-align: right;
+}
+
+#kreditkarte .submit {
+  margin: 0 auto;
+  background-color: #E5696B;
+  border: 0;
+  border-radius: .5rem;
+  width: 7em;
+  padding: .3em;
+  color: white;
+}
+#kreditkarte input {
+  font-size: 1.3rem;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
