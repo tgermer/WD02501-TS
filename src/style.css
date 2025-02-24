@@ -52,10 +52,14 @@ h1 {
 main ul {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
 
   list-style: none;
+}
+
+main ul ul {
+  list-style: disc;
 }
 
 .logo-ts {
