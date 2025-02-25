@@ -23,19 +23,23 @@ const words = [
 ];
 
 const score = document.querySelector(".score");
+const looser = document.querySelector(".looser");
 const buttons = document.querySelector(".letter-btns");
 const searchWord = document.querySelector(".search-word");
 const hitMeAgain = document.querySelector(".hit-me-again");
+let pressedLetters: string[] = [];
+let searchWordOngoing: string[] = [];
 
-const maxScore = 6;
+const maxScore = 2;
 let currentScore = 0;
+let currentSearchWord = "";
 
 const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 for (const letter of alphabet) {
     // console.log(letter);
     if (buttons) {
-        buttons.innerHTML += `<button class="letter-btn">${letter}</button>`;
+        buttons.innerHTML += `<button disabled class="letter-btn">${letter}</button>`;
     }
 }
 
@@ -49,35 +53,44 @@ function randomWord() {
     return words[randomNum];
 }
 
-const randomWordN = randomWord();
-console.log("randomWord Ausgefürht:", randomWordN);
-
 function addPlaceholder() {
     let placeholder = "_";
-    const randomWordN = randomWord();
-    console.log("addPlaceholder Ausgefürht:", randomWordN);
+    currentSearchWord = randomWord();
+    console.log("Neues Wort gewählt:", currentSearchWord);
     if (searchWord) {
-        searchWord.innerHTML = placeholder.repeat(randomWordN.length);
-        searchWord.innerHTML += "<br>" + randomWordN.toUpperCase();
+        searchWord.innerHTML = placeholder.repeat(currentSearchWord.length);
+        searchWord.innerHTML += "<br>" + currentSearchWord.toUpperCase();
         // console.log(placeholder.repeat(randomWord().length));
     }
-    return randomWordN;
 }
 
 hitMeAgain?.addEventListener("click", newGame);
 
 function newGame() {
-    const newSearchWord = addPlaceholder();
-    console.log("NewGame", newSearchWord);
-    return newSearchWord;
+    addPlaceholder();
+    // Buttons wieder aktivieren
+    allLetterBtns.forEach((btn) => {
+        btn.disabled = false;
+        btn.style.cursor = "pointer";
+    });
+    if (hitMeAgain) {
+        hitMeAgain.innerHTML = `Hit Me Baby One More Time`;
+    }
+    currentScore = 0;
+    if (score) {
+        score.innerHTML = `${currentScore} : ${maxScore}`;
+    }
+    if (pressedLetters) {
+        pressedLetters = [];
+    }
+    console.log("Pressed Letters:", pressedLetters);
+    if (searchWordOngoing) {
+        searchWordOngoing = [];
+    }
 }
 
 const allLetterBtns =
     document.querySelectorAll<HTMLButtonElement>(".letter-btn");
-
-// console.log(allLetterBtns);
-
-console.log("Nur Console", randomWordN);
 
 allLetterBtns.forEach((btn) => {
     btn.addEventListener("click", (event) => {
@@ -87,10 +100,52 @@ allLetterBtns.forEach((btn) => {
             clickedButton.style.cursor = "auto";
             const letter = clickedButton.innerText;
             console.log(`Geklickter Button: ${letter}`);
-            console.log("buchstabe", newGame);
+            console.log("Suchwort:", currentSearchWord);
 
             // Herausfinde, ob Buchstabe im Searchword
-            // if ()
+            if (currentSearchWord.toUpperCase().includes(letter)) {
+                console.log("Buchstabe enthalten");
+
+                // CurrentSearchWord
+                // neuen String für den richtigen Buchstaben
+                // placeholder muss ersetzt werden mit richtigen Buchstaben
+
+                pressedLetters.push(letter);
+                console.log("Pressed Letters:", pressedLetters);
+
+                for (const letter of pressedLetters) {
+                    console.log("jeder Buchstabe: ", letter);
+                    for (const letterWord of currentSearchWord) {
+                        if (letterWord.includes(letter)) {
+                            searchWordOngoing.push(letter);
+                            console.log("B:", searchWordOngoing);
+                        } else {
+                            searchWordOngoing.push("_");
+                            console.log("UStrich:", searchWordOngoing);
+                        }
+                    }
+                }
+                if (searchWord) {
+                    searchWord.innerHTML = searchWordOngoing.join("");
+                }
+            } else {
+                console.log("Buchstabe NICHT enthalten");
+                currentScore += 1;
+                if (score) {
+                    score.innerHTML = `${currentScore} : ${maxScore}`;
+                }
+            }
+
+            if (currentScore === maxScore) {
+                allLetterBtns.forEach((btn) => {
+                    btn.disabled = true;
+                    btn.style.cursor = "auto";
+                });
+                if (looser) {
+                    looser.innerHTML =
+                        "You're a looOoooOooser baby!?!?, so why don't you play again?";
+                }
+            }
         }
     });
 });
